@@ -3,14 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PWN</title>
+    <title>PWN // AUTH GATE</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+    <!--
+        [INCIDENT REPORT #05]
+        Во время проверки обнаружена утечка внутреннего диалога администраторов.
+        Один из сотрудников оставил файл доступным извне.
+        Ссылка на утекший файл: leak/admin-chat.txt
+    -->
+    <a href="leak/admin-chat.txt" hidden>Открыть утекший диалог администраторов</a>
+
     <main class="terminal">
-        <p class="prompt">root@pwn:~$ ./entrypoint</p>
-        <h1>ACCESS DENIED</h1>
-        <p>There is nothing here.</p>
+        <div class="terminal-bar">
+            <span></span><span></span><span></span>
+            <p>SECURE NODE // AUTHENTICATION</p>
+        </div>
+
+        <section id="login-panel">
+            <p class="prompt">root@pwn:~$ auth --interactive</p>
+            <h1>IDENTITY REQUIRED</h1>
+            <p class="muted">Authorized personnel only.</p>
+
+            <form id="login-form" autocomplete="off">
+                <label for="login">LOGIN</label>
+                <input id="login" name="login" type="text" required spellcheck="false">
+
+                <label for="password">PASSWORD</label>
+                <input id="password" name="password" type="password" required>
+
+                <button type="submit">[ AUTHENTICATE ]</button>
+                <p id="status" class="status" aria-live="polite"></p>
+            </form>
+        </section>
+
+        <section id="success-panel" class="success" hidden>
+            <p class="prompt">root@pwn:~$ access --granted</p>
+            <h1>ACCESS GRANTED</h1>
+            <p>Level 01 complete.</p>
+            <p class="flag-label">FLAG</p>
+            <code id="flag"></code>
+            <p class="submit-note">Отправьте флаг данному человеку в Telegram:</p>
+            <a class="telegram" href="https://t.me/KlevNice" target="_blank" rel="noopener noreferrer">@KlevNice</a>
+        </section>
     </main>
+
+    <script src="script.js"></script>
 </body>
 </html>

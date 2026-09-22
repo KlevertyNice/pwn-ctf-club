@@ -1,7 +1,7 @@
 :root {
     color-scheme: dark;
     font-family: "Courier New", monospace;
-    background: #050805;
+    background: #030603;
     color: #7cff6b;
 }
 
@@ -14,31 +14,141 @@ body {
     margin: 0;
     display: grid;
     place-items: center;
-    padding: 2rem;
+    padding: 1.25rem;
     background:
+        radial-gradient(circle at 50% 30%, rgba(52, 255, 87, 0.08), transparent 38rem),
         repeating-linear-gradient(
             0deg,
-            rgba(124, 255, 107, 0.03) 0,
-            rgba(124, 255, 107, 0.03) 1px,
+            rgba(124, 255, 107, 0.025) 0,
+            rgba(124, 255, 107, 0.025) 1px,
             transparent 1px,
             transparent 4px
         ),
-        #050805;
+        #030603;
 }
 
 .terminal {
-    width: min(42rem, 100%);
-    padding: 2rem;
+    width: min(34rem, 100%);
     border: 1px solid #2a6b29;
-    box-shadow: 0 0 32px rgba(124, 255, 107, 0.12);
+    background: rgba(3, 10, 4, 0.92);
+    box-shadow: 0 0 40px rgba(124, 255, 107, 0.12);
 }
 
-.prompt {
-    color: #9aa49a;
+.terminal-bar {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    min-height: 2.5rem;
+    padding: 0 0.9rem;
+    border-bottom: 1px solid #204c20;
+    color: #718071;
+    font-size: 0.72rem;
+}
+
+.terminal-bar span {
+    width: 0.65rem;
+    height: 0.65rem;
+    border: 1px solid #477047;
+    border-radius: 50%;
+}
+
+.terminal-bar p {
+    margin: 0 0 0 auto;
+}
+
+section {
+    padding: clamp(1.5rem, 6vw, 2.75rem);
+}
+
+.prompt,
+.muted {
+    color: #879387;
 }
 
 h1 {
-    margin: 1rem 0;
-    color: #ff5252;
-    letter-spacing: 0.12em;
+    margin: 0.9rem 0;
+    color: #eafbea;
+    font-size: clamp(1.65rem, 7vw, 2.35rem);
+    letter-spacing: 0.08em;
+}
+
+form {
+    display: grid;
+    gap: 0.7rem;
+    margin-top: 2rem;
+}
+
+label,
+.flag-label {
+    color: #9bac9b;
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+}
+
+input {
+    width: 100%;
+    margin-bottom: 0.75rem;
+    padding: 0.85rem 0.9rem;
+    border: 1px solid #315c31;
+    outline: none;
+    background: #020502;
+    color: #7cff6b;
+    font: inherit;
+}
+
+input:focus {
+    border-color: #7cff6b;
+    box-shadow: 0 0 0 2px rgba(124, 255, 107, 0.12);
+}
+
+button {
+    margin-top: 0.5rem;
+    padding: 0.9rem;
+    border: 1px solid #7cff6b;
+    background: transparent;
+    color: #7cff6b;
+    font: inherit;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+button:hover,
+button:focus-visible {
+    background: #7cff6b;
+    color: #031003;
+}
+
+.status {
+    min-height: 1.2rem;
+    margin: 0.5rem 0 0;
+    color: #ff6767;
+}
+
+.success h1 {
+    color: #7cff6b;
+}
+
+code {
+    display: block;
+    margin: 0.75rem 0 1.75rem;
+    padding: 1rem;
+    overflow-wrap: anywhere;
+    border: 1px dashed #7cff6b;
+    color: #fff;
+    font-size: 1.05rem;
+}
+
+.submit-note {
+    margin-bottom: 0.5rem;
+    color: #c7d3c7;
+}
+
+.telegram {
+    color: #63b7ff;
+    font-size: 1.2rem;
+    font-weight: bold;
+}
+
+[hidden] {
+    display: none !important;
 }
